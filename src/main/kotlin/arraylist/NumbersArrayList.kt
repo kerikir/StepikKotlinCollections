@@ -41,7 +41,11 @@ class NumbersArrayList(
     }
 
     override fun add(index: Int, number: Int) {
-        TODO("Not yet implemented")
+        growIfNeeded()
+        checkIndexAdding(index)
+        System.arraycopy(numbers, index, number, index + 1, size - index)
+        numbers[index] = number
+        size++
     }
 
     override fun removeAt(index: Int) {
