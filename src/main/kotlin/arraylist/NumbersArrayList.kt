@@ -35,7 +35,9 @@ class NumbersArrayList(
     }
 
     override fun add(number: Int) {
-        TODO("Not yet implemented")
+        growIfNeeded()
+        numbers[size] = number
+        size++
     }
 
     override fun add(index: Int, number: Int) {
