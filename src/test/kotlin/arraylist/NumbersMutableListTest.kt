@@ -3,6 +3,7 @@ package arraylist
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class NumbersMutableListTest {
 
@@ -34,6 +35,15 @@ class NumbersMutableListTest {
         }
         list.clear()
         assertEquals(0, list.size)
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When list contains element then method return true`(list: NumbersMutableList) {
+        repeat(100) {
+            list.add(it)
+        }
+        assertTrue(list.contains(99))
     }
 
     companion object {
