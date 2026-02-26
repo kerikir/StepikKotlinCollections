@@ -56,7 +56,12 @@ class NumbersArrayList(
     }
 
     override fun remove(number: Int) {
-        TODO("Not yet implemented")
+        for (i in numbers.indices) {
+            if (numbers[i] == number) {
+                removeAt(i)
+                return
+            }
+        }
     }
 
     override fun clear() {
