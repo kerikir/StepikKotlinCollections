@@ -1,5 +1,6 @@
 package arraylist
 
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import kotlin.test.assertEquals
@@ -54,6 +55,17 @@ class NumbersMutableListTest {
             list.add(it)
         }
         assertFalse(list.contains(100))
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When method get invoked with wrong index then exception is thrown`(list: NumbersMutableList) {
+        repeat(10) {
+            list.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            list[10]
+        }
     }
 
     companion object {
