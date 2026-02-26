@@ -65,7 +65,8 @@ class NumbersArrayList(
     }
 
     override fun clear() {
-        TODO("Not yet implemented")
+        numbers = arrayOfNulls<Int>(INITIAL_CAPACITY)
+        size = 0
     }
 
     override fun contains(number: Int): Boolean {
