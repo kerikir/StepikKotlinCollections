@@ -15,6 +15,12 @@ class NumbersArrayList(
         }
     }
 
+    private fun checkIndexAdding(index: Int) {
+        if (index < 0 || index > size) {
+            throw IndexOutOfBoundsException("Index: $index Size: $size")
+        }
+    }
+
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
     }
