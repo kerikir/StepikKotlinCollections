@@ -22,7 +22,8 @@ class NumbersArrayList(
     }
 
     override fun get(index: Int): Int {
-        TODO("Not yet implemented")
+        checkIndex(index)
+        return numbers[index]!!
     }
 
     override fun add(number: Int) {
