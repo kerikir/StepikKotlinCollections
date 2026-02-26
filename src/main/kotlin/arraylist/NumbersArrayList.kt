@@ -1,9 +1,13 @@
 package arraylist
 
-class NumbersArrayList : NumbersMutableList {
+class NumbersArrayList(
+    initialCapacity: Int = INITIAL_CAPACITY
+) : NumbersMutableList {
 
-    override val size: Int
-        get() = TODO("Not yet implemented")
+    private var numbers = arrayOfNulls<Int>(initialCapacity)
+
+    override var size: Int = 0
+        private set
 
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
@@ -39,5 +43,10 @@ class NumbersArrayList : NumbersMutableList {
 
     override fun minus(number: Int) {
         TODO("Not yet implemented")
+    }
+
+
+    companion object {
+        private const val INITIAL_CAPACITY = 10
     }
 }
