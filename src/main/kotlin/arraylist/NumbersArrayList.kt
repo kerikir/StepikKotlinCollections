@@ -9,6 +9,12 @@ class NumbersArrayList(
     override var size: Int = 0
         private set
 
+    private fun checkIndex(index: Int) {
+        if (index < 0 || index >= size) {
+            throw IndexOutOfBoundsException("Index: $index Size: $size")
+        }
+    }
+
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
     }
