@@ -26,6 +26,16 @@ class NumbersMutableListTest {
         assertEquals(51, list.get(50))
     }
 
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When list is cleared then size is 0 elements`(list: NumbersMutableList) {
+        repeat(100) {
+            list.add(it)
+        }
+        list.clear()
+        assertEquals(0, list.size)
+    }
+
     companion object {
         @JvmStatic
         private fun numbersMutableListSource() = listOf(NumbersArrayList())
