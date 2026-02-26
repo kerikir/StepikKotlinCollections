@@ -70,7 +70,12 @@ class NumbersArrayList(
     }
 
     override fun contains(number: Int): Boolean {
-        TODO("Not yet implemented")
+        for (i in numbers.indices) {
+            if (numbers[i] == number) {
+                return true
+            }
+        }
+        return false
     }
 
     override fun plus(number: Int) {
