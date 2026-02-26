@@ -59,6 +59,16 @@ class NumbersMutableListTest {
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
+    fun `When removed 50th next value at this position`(list: NumbersMutableList) {
+        repeat(100) {
+            list.add(it)
+        }
+        list.removeAt(50)
+        assertEquals(51, list[50])
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
     fun `When removed value 50 next value at this position`(list: NumbersMutableList) {
         repeat(100) {
             list.add(it)
