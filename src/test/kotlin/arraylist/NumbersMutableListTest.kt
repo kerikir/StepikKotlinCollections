@@ -17,6 +17,15 @@ class NumbersMutableListTest {
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
+    fun `When add 10 element then size is 10`(list: NumbersMutableList) {
+        repeat(10) {
+            list + it
+        }
+        assertEquals(10, list.size)
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
     fun `When element removed then size decreased`(list: NumbersMutableList) {
         repeat(100) {
             list.add(it)
