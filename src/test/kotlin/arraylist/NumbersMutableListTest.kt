@@ -1,13 +1,19 @@
 package arraylist
 
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+
 
 class NumbersMutableListTest {
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When add 1 element then size is 1`(list: NumbersMutableList) {
+        list.add(1)
+        assertEquals(1, list.size)
+    }
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
