@@ -21,6 +21,14 @@ class NumbersArrayList(
         }
     }
 
+    private fun growIfNeeded() {
+        if (numbers.size == size) {
+            val newArray = arrayOfNulls<Int>(numbers.size * 2)
+            System.arraycopy(numbers, 0, newArray, 0, numbers.size)
+            numbers = newArray
+        }
+    }
+
     override fun get(index: Int): Int {
         checkIndex(index)
         return numbers[index]!!
