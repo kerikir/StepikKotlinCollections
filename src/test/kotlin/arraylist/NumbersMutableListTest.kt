@@ -16,6 +16,16 @@ class NumbersMutableListTest {
         assertEquals(99, list.size)
     }
 
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When removed value 50 next value at this position`(list: NumbersMutableList) {
+        repeat(100) {
+            list.add(it)
+        }
+        list.remove(50)
+        assertEquals(51, list.get(50))
+    }
+
     companion object {
         @JvmStatic
         private fun numbersMutableListSource() = listOf(NumbersArrayList())
