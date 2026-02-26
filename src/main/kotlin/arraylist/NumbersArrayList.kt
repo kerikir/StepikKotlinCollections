@@ -43,7 +43,7 @@ class NumbersArrayList(
     override fun add(index: Int, number: Int) {
         growIfNeeded()
         checkIndexAdding(index)
-        System.arraycopy(numbers, index, number, index + 1, size - index)
+        System.arraycopy(numbers, index, numbers, index + 1, size - index)
         numbers[index] = number
         size++
     }
