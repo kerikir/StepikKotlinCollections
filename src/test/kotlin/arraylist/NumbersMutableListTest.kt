@@ -45,6 +45,16 @@ class NumbersMutableListTest {
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
+    fun `When element added to last position then it is in last position`(list: NumbersMutableList) {
+        repeat(100) {
+            list.add(it)
+        }
+        list.add(100, 1000)
+        assertEquals(1000, list.get(100))
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
     fun `When get 5th element then result is correct`(list: NumbersMutableList) {
         repeat(10) { list.add(it) }
         assertEquals(5, list[5])
