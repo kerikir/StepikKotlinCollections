@@ -42,6 +42,13 @@ class NumbersMutableListTest {
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
+    fun `When get 50th element then result is correct`(list: NumbersMutableList) {
+        repeat(100) { list.add(it) }
+        assertEquals(50, list[50])
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
     fun `When element removed then size decreased`(list: NumbersMutableList) {
         repeat(100) {
             list.add(it)
