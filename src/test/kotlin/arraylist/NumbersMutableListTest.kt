@@ -118,7 +118,7 @@ class NumbersMutableListTest {
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
-    fun `When list not contains element then method return false`(list: NumbersMutableList) {
+    fun `When list does not contains element then method return false`(list: NumbersMutableList) {
         repeat(100) {
             list.add(it)
         }
