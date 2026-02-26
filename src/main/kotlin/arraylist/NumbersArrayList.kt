@@ -49,7 +49,10 @@ class NumbersArrayList(
     }
 
     override fun removeAt(index: Int) {
-        TODO("Not yet implemented")
+        checkIndex(index)
+        System.arraycopy(numbers, index + 1, numbers, index, size - index - 1)
+        size--
+        numbers[size] = null
     }
 
     override fun remove(number: Int) {
