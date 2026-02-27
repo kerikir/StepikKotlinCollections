@@ -73,6 +73,10 @@ class NumbersSinglyLinkedList : NumbersMutableList {
 
     override fun removeAt(index: Int) {
         checkIndex(index)
+        if (index == 0 && size == 1) {
+            clear()
+            return
+        }
         if (index == 0) {
             first = first?.next
             size--
