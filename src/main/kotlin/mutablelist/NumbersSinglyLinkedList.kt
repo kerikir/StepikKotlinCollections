@@ -86,7 +86,24 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun remove(number: Int) {
-        TODO("Not yet implemented")
+        var node = first
+        if (node?.item == number) {
+            first = node?.next
+            size--
+        }
+
+        repeat(size) {
+            val after = node?.next
+            if (after?.item == number) {
+                node?.next = after?.next
+                if (node?.next == null) {
+                    last = node
+                }
+                size--
+            } else {
+                node = after
+            }
+        }
     }
 
     override fun clear() {
@@ -106,7 +123,6 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     override fun minus(number: Int) {
         TODO("Not yet implemented")
     }
-
 
     class Node(
         val item: Int,
