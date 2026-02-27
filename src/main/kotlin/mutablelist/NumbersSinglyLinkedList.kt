@@ -88,14 +88,14 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     override fun remove(number: Int) {
         var node = first
         if (node?.item == number) {
-            first = node?.next
+            first = node.next
             size--
         }
 
         repeat(size) {
             val after = node?.next
             if (after?.item == number) {
-                node?.next = after?.next
+                node?.next = after.next
                 if (node?.next == null) {
                     last = node
                 }
