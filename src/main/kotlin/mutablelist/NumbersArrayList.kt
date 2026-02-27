@@ -1,4 +1,4 @@
-package arraylist
+package mutablelist
 
 class NumbersArrayList(
     initialCapacity: Int = INITIAL_CAPACITY

@@ -1,4 +1,4 @@
-package arraylist
+package mutablelist
 
 interface NumbersMutableList {
     val size: Int

@@ -1,4 +1,4 @@
-package arraylist
+package mutablelist
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.assertThrows
