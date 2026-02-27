@@ -40,4 +40,10 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     override fun minus(number: Int) {
         TODO("Not yet implemented")
     }
+
+
+    class Node(
+        val item: Int,
+        var next: Node?
+    )
 }
