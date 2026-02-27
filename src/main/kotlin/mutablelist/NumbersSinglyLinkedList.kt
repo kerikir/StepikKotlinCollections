@@ -113,7 +113,14 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun contains(number: Int): Boolean {
-        TODO("Not yet implemented")
+        var node = first
+        repeat(size) {
+            if (node?.item == number) {
+                return true
+            }
+            node = node?.next
+        }
+        return false
     }
 
     override fun plus(number: Int) {
