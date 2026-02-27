@@ -20,6 +20,15 @@ class NumbersSinglyLinkedList : NumbersMutableList {
         }
     }
 
+    private fun getNode(index: Int): Node {
+        checkIndex(index)
+        var node = first
+        repeat(index) {
+            node = node?.next
+        }
+        return node!!
+    }
+
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
     }
