@@ -92,22 +92,24 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun remove(number: Int) {
-        var node = first
-        if (node?.item == number) {
-            first = node.next
-            size--
+        if (first?.item == number) {
+            removeAt(0)
+            return
         }
 
+        var before = first
         repeat(size) {
-            val after = node?.next
-            if (after?.item == number) {
-                node?.next = after.next
-                if (node?.next == null) {
-                    last = node
+            val node = before?.next
+            if (node?.item == number) {
+                val after = node.next
+                before?.next = after
+                if (after == null) {
+                    last = before
                 }
                 size--
+                return
             } else {
-                node = after
+                before = before?.next
             }
         }
     }
