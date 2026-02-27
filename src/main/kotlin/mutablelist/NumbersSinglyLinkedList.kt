@@ -35,7 +35,17 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun add(number: Int) {
-        TODO("Not yet implemented")
+        if (size == 0) {
+            val node = Node(number)
+            first = node
+            last = node
+            size++
+            return
+        }
+        val newNode = Node(number)
+        last?.next = newNode
+        last = newNode
+        size++
     }
 
     override fun add(index: Int, number: Int) {
@@ -88,6 +98,6 @@ class NumbersSinglyLinkedList : NumbersMutableList {
 
     class Node(
         val item: Int,
-        var next: Node?
+        var next: Node? = null
     )
 }
