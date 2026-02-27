@@ -22,6 +22,9 @@ class NumbersSinglyLinkedList : NumbersMutableList {
 
     private fun getNode(index: Int): Node {
         checkIndex(index)
+        if (index == 0) return first!!
+        if (index == size - 1) return last!!
+
         var node = first
         repeat(index) {
             node = node?.next
