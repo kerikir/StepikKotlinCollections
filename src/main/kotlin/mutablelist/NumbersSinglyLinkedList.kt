@@ -30,7 +30,8 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun get(index: Int): Int {
-        TODO("Not yet implemented")
+        val node = getNode(index)
+        return node.item
     }
 
     override fun add(number: Int) {
