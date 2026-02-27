@@ -33,8 +33,7 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun get(index: Int): Int {
-        val node = getNode(index)
-        return node.item
+        return getNode(index).item
     }
 
     override fun add(number: Int) {
