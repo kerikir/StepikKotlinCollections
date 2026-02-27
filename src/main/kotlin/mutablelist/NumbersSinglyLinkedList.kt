@@ -51,7 +51,9 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun clear() {
-        TODO("Not yet implemented")
+        size = 0
+        first = null
+        last = null
     }
 
     override fun contains(number: Int): Boolean {
