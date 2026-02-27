@@ -39,7 +39,24 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun add(index: Int, number: Int) {
-        TODO("Not yet implemented")
+        checkIndexAdding(index)
+
+        if (index == 0) {
+            val newNode = Node(number, first)
+            first = newNode
+            size++
+            return
+        }
+        if (index == size) {
+            add(number)
+            return
+        }
+
+        val before = getNode(index - 1)
+        val after = before.next
+        val node = Node(number, after)
+        before.next = node
+        size++
     }
 
     override fun removeAt(index: Int) {
