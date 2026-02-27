@@ -70,7 +70,19 @@ class NumbersSinglyLinkedList : NumbersMutableList {
     }
 
     override fun removeAt(index: Int) {
-        TODO("Not yet implemented")
+        checkIndex(index)
+        if (index == 0) {
+            first = first?.next
+            size--
+            return
+        }
+        val before = getNode(index - 1)
+        val after = before.next?.next
+        before.next = after
+        if (after == null) {
+            last = before
+        }
+        size--
     }
 
     override fun remove(number: Int) {
