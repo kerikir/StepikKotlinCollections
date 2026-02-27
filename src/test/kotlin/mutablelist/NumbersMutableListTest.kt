@@ -149,6 +149,6 @@ class NumbersMutableListTest {
 
     companion object {
         @JvmStatic
-        private fun numbersMutableListSource() = listOf(NumbersArrayList())
+        private fun numbersMutableListSource() = listOf(NumbersArrayList(), NumbersSinglyLinkedList())
     }
 }
