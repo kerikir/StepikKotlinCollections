@@ -93,7 +93,7 @@ class NumbersMutableListTest {
         repeat(100) {
             list.add(it)
         }
-        list.remove(50)
+        list - 50
         assertEquals(51, list.get(50))
     }
 
