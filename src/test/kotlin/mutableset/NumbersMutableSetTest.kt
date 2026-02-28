@@ -40,11 +40,17 @@ class NumbersMutableSetTest {
     }
 
 
-
     @Test
     fun `When element present in set Then method return true`() {
         repeat(10) { numbers.add(it) }
         assertTrue { numbers.contains(9) }
+    }
+
+
+    @Test
+    fun `When element is absent in set Then method return false`() {
+        repeat(10) { numbers.add(it) }
+        assertTrue { numbers.contains(10) }
     }
 
 
