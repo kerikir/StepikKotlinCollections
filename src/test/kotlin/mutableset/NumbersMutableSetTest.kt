@@ -38,4 +38,11 @@ class NumbersMutableSetTest {
         numbers.add(0)
         assertFalse { numbers.add(1) }
     }
+
+
+    @Test
+    fun `When element present in set Then method return true`() {
+        repeat(10) { numbers.add(it) }
+        assertTrue { numbers.contains(9) }
+    }
 }
