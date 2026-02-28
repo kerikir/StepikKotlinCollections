@@ -158,6 +158,17 @@ class NumbersMutableListTest {
         }
     }
 
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When method add invoked with negative index then exception is thrown`(list: NumbersMutableList) {
+        repeat(10) {
+            list.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            list.add(-1, 100)
+        }
+    }
+
     companion object {
         @JvmStatic
         private fun numbersMutableListSource() = listOf(NumbersArrayList(), NumbersSinglyLinkedList())
