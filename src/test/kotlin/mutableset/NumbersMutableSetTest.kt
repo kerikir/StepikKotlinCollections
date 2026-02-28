@@ -15,4 +15,13 @@ class NumbersMutableSetTest {
         }
         assertEquals(100, numbers.size)
     }
+
+
+    @Test
+    fun `When added 10 similar elements Then size 1`() {
+        repeat(10) {
+            numbers.add(0)
+        }
+        assertEquals(1, numbers.size)
+    }
 }
