@@ -58,7 +58,26 @@ class NumbersDoublyLinkedList : NumbersMutableList {
     }
 
     override fun add(index: Int, number: Int) {
-        TODO("Not yet implemented")
+        checkIndexAdding(index)
+
+        if (index == size) {
+            add(number)
+            return
+        }
+        if (index == 0) {
+            val node = Node(null, number, first)
+            first?.prev = node
+            first = node
+            size++
+            return
+        }
+
+        val before = getNode(index - 1)
+        val after = before.next
+        val newNode = Node(before, number, after)
+        before.next = newNode
+        after?.prev = newNode
+        size++
     }
 
     override fun removeAt(index: Int) {
