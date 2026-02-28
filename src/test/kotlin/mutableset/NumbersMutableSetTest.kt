@@ -40,9 +40,19 @@ class NumbersMutableSetTest {
     }
 
 
+
     @Test
     fun `When element present in set Then method return true`() {
         repeat(10) { numbers.add(it) }
         assertTrue { numbers.contains(9) }
+    }
+
+
+
+    @Test
+    fun `When element removed Then contains return false`() {
+        repeat(10) { numbers.add(it) }
+        numbers.remove(0)
+        assertFalse { numbers.contains(0) }
     }
 }
