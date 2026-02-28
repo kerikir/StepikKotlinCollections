@@ -180,6 +180,17 @@ class NumbersMutableListTest {
         }
     }
 
+    @ParameterizedTest
+    @MethodSource("numbersMutableListSource")
+    fun `When method removeAt invoked with negative index then exception is thrown`(list: NumbersMutableList) {
+        repeat(10) {
+            list.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            list.removeAt(-1)
+        }
+    }
+
     companion object {
         @JvmStatic
         private fun numbersMutableListSource() = listOf(NumbersArrayList(), NumbersSinglyLinkedList())
