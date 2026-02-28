@@ -15,6 +15,7 @@ class NumbersMutableListTest {
         assertEquals(1, list.size)
     }
 
+    
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When add 10 element then size is 10`(list: NumbersMutableList) {
@@ -24,6 +25,7 @@ class NumbersMutableListTest {
         assertEquals(10, list.size)
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When add 100 element then size is 100`(list: NumbersMutableList) {
@@ -32,6 +34,7 @@ class NumbersMutableListTest {
         }
         assertEquals(100, list.size)
     }
+
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
@@ -43,6 +46,7 @@ class NumbersMutableListTest {
         assertEquals(1000, list.get(0))
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When element added to last position then it is in last position`(list: NumbersMutableList) {
@@ -53,6 +57,7 @@ class NumbersMutableListTest {
         assertEquals(1000, list.get(100))
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When get 5th element then result is correct`(list: NumbersMutableList) {
@@ -60,12 +65,14 @@ class NumbersMutableListTest {
         assertEquals(5, list[5])
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When get 50th element then result is correct`(list: NumbersMutableList) {
         repeat(100) { list.add(it) }
         assertEquals(50, list[50])
     }
+
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
@@ -77,6 +84,7 @@ class NumbersMutableListTest {
         assertEquals(99, list.size)
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When removed 50th next value at this position`(list: NumbersMutableList) {
@@ -86,6 +94,7 @@ class NumbersMutableListTest {
         list.removeAt(50)
         assertEquals(51, list[50])
     }
+
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
@@ -97,6 +106,7 @@ class NumbersMutableListTest {
         assertEquals(51, list.get(50))
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When list is cleared then size is 0 elements`(list: NumbersMutableList) {
@@ -107,6 +117,7 @@ class NumbersMutableListTest {
         assertEquals(0, list.size)
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When list contains element then method return true`(list: NumbersMutableList) {
@@ -116,6 +127,7 @@ class NumbersMutableListTest {
         assertTrue(list.contains(99))
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When list does not contains element then method return false`(list: NumbersMutableList) {
@@ -124,6 +136,7 @@ class NumbersMutableListTest {
         }
         assertFalse(list.contains(100))
     }
+
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
@@ -136,6 +149,7 @@ class NumbersMutableListTest {
         }
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When method get invoked with negative index then exception is thrown`(list: NumbersMutableList) {
@@ -146,6 +160,7 @@ class NumbersMutableListTest {
             list[-2]
         }
     }
+
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
@@ -158,6 +173,7 @@ class NumbersMutableListTest {
         }
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When method add invoked with negative index then exception is thrown`(list: NumbersMutableList) {
@@ -168,6 +184,7 @@ class NumbersMutableListTest {
             list.add(-1, 100)
         }
     }
+
 
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
@@ -180,6 +197,7 @@ class NumbersMutableListTest {
         }
     }
 
+
     @ParameterizedTest
     @MethodSource("numbersMutableListSource")
     fun `When method removeAt invoked with negative index then exception is thrown`(list: NumbersMutableList) {
@@ -191,8 +209,11 @@ class NumbersMutableListTest {
         }
     }
 
+
     companion object {
         @JvmStatic
-        private fun numbersMutableListSource() = listOf(NumbersArrayList(), NumbersSinglyLinkedList())
+        private fun numbersMutableListSource() = listOf(
+            NumbersArrayList(), NumbersSinglyLinkedList(), NumbersDoublyLinkedList()
+        )
     }
 }
