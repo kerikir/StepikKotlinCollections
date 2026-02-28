@@ -127,12 +127,14 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         return false
     }
 
+    
     override fun plus(number: Int) {
-        TODO("Not yet implemented")
+        add(number)
     }
 
+
     override fun minus(number: Int) {
-        TODO("Not yet implemented")
+        remove(number)
     }
 
 
