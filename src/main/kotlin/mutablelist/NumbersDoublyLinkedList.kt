@@ -50,6 +50,12 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         }
     }
 
+    private fun checkIndexAdding(index: Int) {
+        if (index < 0 || index > size) {
+            throw IndexOutOfBoundsException("Index: $index Size: $size")
+        }
+    }
+
     class Node(
         var prev: Node? = null,
         val item: Int,
