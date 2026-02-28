@@ -115,7 +115,16 @@ class NumbersDoublyLinkedList : NumbersMutableList {
 
 
     override fun contains(number: Int): Boolean {
-        TODO("Not yet implemented")
+        var node = first
+        while (node != null) {
+            if (node.item == number) {
+                return true
+            } else {
+                node = node.next
+            }
+        }
+
+        return false
     }
 
     override fun plus(number: Int) {
