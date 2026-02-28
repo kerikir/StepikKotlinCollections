@@ -54,6 +54,13 @@ class NumbersMutableSetTest {
     }
 
 
+    @Test
+    fun `When element removed Then size is decreased`() {
+        repeat(10) { numbers.add(it) }
+        numbers.remove(0)
+        assertEquals(9, numbers.size)
+    }
+
 
     @Test
     fun `When element removed Then contains return false`() {
