@@ -27,6 +27,21 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         }
     }
 
+    private fun unlink(node: Node) {
+        val before = node.prev
+        val after = node.next
+        before?.next = after
+        after?.prev = before
+
+        if (after == null) {
+            last = before
+        }
+        if (before == null) {
+            first = after
+        }
+        size--
+    }
+
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
     }
