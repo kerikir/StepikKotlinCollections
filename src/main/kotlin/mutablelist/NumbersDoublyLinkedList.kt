@@ -5,6 +5,9 @@ class NumbersDoublyLinkedList : NumbersMutableList {
     override var size: Int = 0
         private set
 
+    private var first: Node? = null
+    private var last: Node? = null
+
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
     }
