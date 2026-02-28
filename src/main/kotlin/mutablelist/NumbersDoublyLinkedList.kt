@@ -8,6 +8,7 @@ class NumbersDoublyLinkedList : NumbersMutableList {
     private var first: Node? = null
     private var last: Node? = null
 
+
     private fun getNode(index: Int): Node {
         if (index == 0) return first!!
         if (index == size - 1) return last!!
@@ -27,6 +28,7 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         }
     }
 
+
     private fun unlink(node: Node) {
         val before = node.prev
         val after = node.next
@@ -42,9 +44,12 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         size--
     }
 
+
     override fun get(index: Int): Int {
-        TODO("Not yet implemented")
+        checkIndex(index)
+        return getNode(index).item
     }
+
 
     override fun add(number: Int) {
         val prevLast = last
@@ -57,6 +62,7 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         size++
     }
 
+    
     override fun add(index: Int, number: Int) {
         checkIndexAdding(index)
 
