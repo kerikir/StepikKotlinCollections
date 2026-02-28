@@ -13,7 +13,14 @@ class NumbersDoublyLinkedList : NumbersMutableList {
     }
 
     override fun add(number: Int) {
-        TODO("Not yet implemented")
+        val prevLast = last
+        last = Node(prevLast, number)
+        if (prevLast == null) {
+            first = last
+        } else {
+            prevLast.next = last
+        }
+        size++
     }
 
     override fun add(index: Int, number: Int) {
