@@ -70,6 +70,15 @@ class NumbersMutableSetTest {
     }
 
 
+    @Test
+    fun `When set is cleared Then size is 0`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        numbers.clear()
+        assertEquals(0, numbers.size)
+    }
+
 
     @Test
     fun `When set is cleared Then all elements is absent`() {
