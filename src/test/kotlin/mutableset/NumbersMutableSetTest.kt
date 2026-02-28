@@ -31,4 +31,11 @@ class NumbersMutableSetTest {
         numbers.add(0)
         assertFalse { numbers.add(0) }
     }
+
+
+    @Test
+    fun `When adding is succeed Then method return true`() {
+        numbers.add(0)
+        assertFalse { numbers.add(1) }
+    }
 }
