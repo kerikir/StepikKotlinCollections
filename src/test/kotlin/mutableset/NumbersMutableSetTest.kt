@@ -55,4 +55,18 @@ class NumbersMutableSetTest {
         numbers.remove(0)
         assertFalse { numbers.contains(0) }
     }
+
+
+
+    @Test
+    fun `When set is cleared Then all elements is absent`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        numbers.clear()
+
+        repeat(10) {
+            assertFalse { numbers.contains(it) }
+        }
+    }
 }
