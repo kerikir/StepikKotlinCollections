@@ -86,21 +86,33 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         size++
     }
 
+
     override fun removeAt(index: Int) {
         checkIndex(index)
         val node = getNode(index)
         unlink(node)
     }
 
+
     override fun remove(number: Int) {
-        TODO("Not yet implemented")
+        var node = first
+        while (node != null) {
+            if (node.item == number) {
+                unlink(node)
+                return
+            } else {
+                node = node.next
+            }
+        }
     }
+
 
     override fun clear() {
         size = 0
         first = null
         last = null
     }
+
 
     override fun contains(number: Int): Boolean {
         TODO("Not yet implemented")
@@ -114,17 +126,20 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         TODO("Not yet implemented")
     }
 
+
     private fun checkIndex(index: Int) {
         if (index < 0 || index >= size) {
             throw IndexOutOfBoundsException("Index: $index Size: $size")
         }
     }
 
+
     private fun checkIndexAdding(index: Int) {
         if (index < 0 || index > size) {
             throw IndexOutOfBoundsException("Index: $index Size: $size")
         }
     }
+
 
     class Node(
         var prev: Node? = null,
