@@ -8,6 +8,25 @@ class NumbersDoublyLinkedList : NumbersMutableList {
     private var first: Node? = null
     private var last: Node? = null
 
+    private fun getNode(index: Int): Node {
+        if (index == 0) return first!!
+        if (index == size - 1) return last!!
+
+        if (index < size / 2) {
+            var node = first
+            repeat(index) {
+                node = node?.next
+            }
+            return node!!
+        } else {
+            var node = last
+            repeat(size - index - 1) {
+                node = node?.prev
+            }
+            return node!!
+        }
+    }
+
     override fun get(index: Int): Int {
         TODO("Not yet implemented")
     }
