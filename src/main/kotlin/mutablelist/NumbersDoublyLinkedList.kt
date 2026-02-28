@@ -41,6 +41,7 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         if (before == null) {
             first = after
         }
+
         size--
     }
 
@@ -127,7 +128,7 @@ class NumbersDoublyLinkedList : NumbersMutableList {
         return false
     }
 
-    
+
     override fun plus(number: Int) {
         add(number)
     }
