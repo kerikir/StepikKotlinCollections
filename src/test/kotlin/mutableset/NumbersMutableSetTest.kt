@@ -24,4 +24,11 @@ class NumbersMutableSetTest {
         }
         assertEquals(1, numbers.size)
     }
+
+
+    @Test
+    fun `When adding is failed Then method return false`() {
+        numbers.add(0)
+        assertFalse { numbers.add(0) }
+    }
 }
