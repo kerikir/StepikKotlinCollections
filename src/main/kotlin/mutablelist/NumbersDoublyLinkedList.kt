@@ -81,7 +81,9 @@ class NumbersDoublyLinkedList : NumbersMutableList {
     }
 
     override fun removeAt(index: Int) {
-        TODO("Not yet implemented")
+        checkIndex(index)
+        val node = getNode(index)
+        unlink(node)
     }
 
     override fun remove(number: Int) {
