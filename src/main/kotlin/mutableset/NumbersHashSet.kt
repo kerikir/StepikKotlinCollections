@@ -1,11 +1,20 @@
 package mutableset
 
+import kotlin.math.abs
+
+
 class NumbersHashSet : NumbersMutableSet {
 
     private var elements = arrayOfNulls<Int>(INITIAL_CAPACITY)
 
     override var size: Int = 0
         private set
+
+
+    private fun getElementPosition(number: Int, arraySize: Int): Int {
+        return abs(number % arraySize)
+    }
+
 
     override fun add(number: Int): Boolean {
         TODO("Not yet implemented")
