@@ -59,11 +59,16 @@ class NumbersHashSet : NumbersMutableSet {
 
     override fun add(number: Int): Boolean {
         if (size >= elements.size * LOAD_FACTORY) {
-
+            increaseArray()
         }
 
-        return add(number, elements)
+        return add(number, elements).also { added ->
+            if (added) {
+                size++
+            }
+        }
     }
+    
 
     override fun remove(number: Int) {
         TODO("Not yet implemented")
