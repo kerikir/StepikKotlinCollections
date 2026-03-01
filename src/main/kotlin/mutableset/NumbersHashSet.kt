@@ -16,14 +16,15 @@ class NumbersHashSet : NumbersMutableSet {
     }
 
 
-    private fun add(number: Int, array: Array<Int>): Boolean {
+    private fun add(number: Int, array: Array<Node?>): Boolean {
         val newNode = Node(number)
         val position = getElementPosition(number, array.size)
 
-        var existedElement = elements[position]
+        var existedElement = array[position]
         if (existedElement == null) {
-            elements[position] = newNode
+            array[position] = newNode
             return true
+            
         } else {
             while (true) {
                 if (existedElement?.item == number) {
@@ -43,7 +44,11 @@ class NumbersHashSet : NumbersMutableSet {
 
 
     override fun add(number: Int): Boolean {
-        TODO("Not yet implemented")
+        if (size >= elements.size * LOAD_FACTORY) {
+
+        }
+
+        return add(number, elements)
     }
 
     override fun remove(number: Int) {
@@ -61,6 +66,7 @@ class NumbersHashSet : NumbersMutableSet {
 
     companion object {
         private const val INITIAL_CAPACITY = 16
+        private const val LOAD_FACTORY = 0.75
     }
 
 
