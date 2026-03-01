@@ -71,7 +71,27 @@ class NumbersHashSet : NumbersMutableSet {
 
 
     override fun remove(number: Int) {
-        TODO("Not yet implemented")
+        val position = getElementPosition(number, elements.size)
+        val existedElement = elements[position]
+
+        if (existedElement?.item == number) {
+            elements[position] = existedElement.next
+            size--
+            return
+        }
+
+        var before: Node? = existedElement
+        while (before?.next != null) {
+            val removingElement = before.next
+
+            if (removingElement?.item == number) {
+                before.next = removingElement.next
+                size--
+                return
+            } else {
+                before = before.next
+            }
+        }
     }
 
 
@@ -87,7 +107,7 @@ class NumbersHashSet : NumbersMutableSet {
                 existedElement = existedElement.next
             }
         }
-        
+
         return false
     }
 
