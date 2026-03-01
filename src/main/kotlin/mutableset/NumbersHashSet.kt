@@ -24,7 +24,7 @@ class NumbersHashSet : NumbersMutableSet {
         if (existedElement == null) {
             array[position] = newNode
             return true
-            
+
         } else {
             while (true) {
                 if (existedElement?.item == number) {
@@ -40,6 +40,20 @@ class NumbersHashSet : NumbersMutableSet {
                 }
             }
         }
+    }
+
+
+    private fun increaseArray() {
+        val newArray = arrayOfNulls<Node>(elements.size * 2)
+
+        for (node in elements) {
+            var currentElement = node
+            while (currentElement != null) {
+                add(currentElement.item, newArray)
+                currentElement = currentElement.next
+            }
+        }
+        elements = newArray
     }
 
 
