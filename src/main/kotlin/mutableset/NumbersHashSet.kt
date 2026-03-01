@@ -74,9 +74,23 @@ class NumbersHashSet : NumbersMutableSet {
         TODO("Not yet implemented")
     }
 
+
     override fun contains(number: Int): Boolean {
-        TODO("Not yet implemented")
+        val position = getElementPosition(number, elements.size)
+        var existedElement = elements[position]
+
+        while (existedElement != null) {
+            if (existedElement.item == number) {
+                return true
+
+            } else {
+                existedElement = existedElement.next
+            }
+        }
+        
+        return false
     }
+
 
     override fun clear() {
         elements = arrayOfNulls<Node>(INITIAL_CAPACITY)
