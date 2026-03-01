@@ -2,6 +2,8 @@ package mutableset
 
 class NumbersHashSet : NumbersMutableSet {
 
+    private var elements = arrayOfNulls<Int>(INITIAL_CAPACITY)
+
     override var size: Int = 0
         private set
 
@@ -19,6 +21,11 @@ class NumbersHashSet : NumbersMutableSet {
 
     override fun clear() {
         TODO("Not yet implemented")
+    }
+
+
+    companion object {
+        private const val INITIAL_CAPACITY = 16
     }
 
 
