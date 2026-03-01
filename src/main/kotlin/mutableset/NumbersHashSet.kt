@@ -68,7 +68,7 @@ class NumbersHashSet : NumbersMutableSet {
             }
         }
     }
-    
+
 
     override fun remove(number: Int) {
         TODO("Not yet implemented")
@@ -79,7 +79,8 @@ class NumbersHashSet : NumbersMutableSet {
     }
 
     override fun clear() {
-        TODO("Not yet implemented")
+        elements = arrayOfNulls<Node>(INITIAL_CAPACITY)
+        size = 0
     }
 
 
