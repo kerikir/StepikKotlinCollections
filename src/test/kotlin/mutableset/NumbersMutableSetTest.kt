@@ -50,7 +50,7 @@ class NumbersMutableSetTest {
     @Test
     fun `When element is absent in set Then method return false`() {
         repeat(10) { numbers.add(it) }
-        assertTrue { numbers.contains(10) }
+        assertFalse { numbers.contains(10) }
     }
 
 
