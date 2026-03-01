@@ -20,4 +20,10 @@ class NumbersHashSet : NumbersMutableSet {
     override fun clear() {
         TODO("Not yet implemented")
     }
+
+
+    class Node(
+        val item: Int,
+        var next: Node? = null
+    )
 }
