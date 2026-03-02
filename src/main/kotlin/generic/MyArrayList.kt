@@ -51,6 +51,13 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    private fun checkIndexForAdding(index: Int) {
+        if (index !in 0..size) {
+            throw IndexOutOfBoundsException("Index = $index Size = $size")
+        }
+    }
+
+
     companion object {
         private const val INITIAL_CAPACITY = 10
     }
