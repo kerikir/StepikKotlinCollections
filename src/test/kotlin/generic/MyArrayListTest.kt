@@ -106,4 +106,13 @@ class MyArrayListTest {
         numbers.clear()
         assertEquals(0, numbers.size)
     }
+
+
+    @Test
+    fun `When list contains element then method return true`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        assertTrue(numbers.contains(99))
+    }
 }
