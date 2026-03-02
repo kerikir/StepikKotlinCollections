@@ -32,6 +32,8 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
 
     override fun add(element: T): Boolean {
         growIfNeeded()
+        modificationCounter++
+
         elements[size] = element
         size++
         return true
@@ -41,6 +43,7 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     override fun add(index: Int, element: T) {
         checkIndexForAdding(index)
         growIfNeeded()
+        modificationCounter++
 
         System.arraycopy(elements, index, elements, index + 1, size - index)
         elements[index] = element
@@ -50,6 +53,7 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
 
     override fun removeAt(index: Int) {
         checkIndex(index)
+        modificationCounter++
 
         System.arraycopy(elements, index + 1, elements, index, size - index - 1)
         size--
@@ -67,6 +71,9 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
             }
         }
     }
+
+
+    private var modificationCounter = 0
 
 
     override fun iterator(): Iterator<T> {
