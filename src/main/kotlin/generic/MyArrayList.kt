@@ -58,6 +58,15 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    private fun growIfNeeded() {
+        if (size == elements.size) {
+            val newArray = arrayOfNulls<Any>(elements.size * 2)
+            System.arraycopy(elements, 0, newArray, 0, elements.size)
+            elements = newArray
+        }
+    }
+
+
     companion object {
         private const val INITIAL_CAPACITY = 10
     }
