@@ -80,12 +80,16 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
         return object : Iterator<T> {
 
             private var nextIndex = 0
+            private val currentModificationCounter = modificationCounter
 
             override fun hasNext(): Boolean {
                 return nextIndex < size
             }
 
             override fun next(): T {
+                if (currentModificationCounter != modificationCounter)
+                    throw ConcurrentModificationException()
+
                 return elements[nextIndex++] as T
             }
         }
