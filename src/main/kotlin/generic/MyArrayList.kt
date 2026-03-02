@@ -36,4 +36,8 @@ class MyArrayList<T> : MyMutableList<T> {
     override fun removeAt(index: Int) {
         TODO("Not yet implemented")
     }
+
+    companion object {
+        private const val INITIAL_CAPACITY = 10
+    }
 }
