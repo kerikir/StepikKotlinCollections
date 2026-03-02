@@ -14,4 +14,13 @@ class MyArrayListTest {
         numbers.add(1)
         assertEquals(1, numbers.size)
     }
+
+
+    @Test
+    fun `When add 10 element then size is 10`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertEquals(10, numbers.size)
+    }
 }
