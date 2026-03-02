@@ -115,4 +115,13 @@ class MyArrayListTest {
         }
         assertTrue(numbers.contains(99))
     }
+
+
+    @Test
+    fun `When list does not contains element then method return false`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        assertFalse(numbers.contains(100))
+    }
 }
