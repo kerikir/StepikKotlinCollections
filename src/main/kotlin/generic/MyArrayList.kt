@@ -20,6 +20,16 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    override fun contains(element: T): Boolean {
+        for (i in 0..<size) {
+            if (elements[i] == element)
+                return true
+        }
+
+        return false
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
@@ -34,10 +44,6 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
     override fun remove(element: T) {
-        TODO("Not yet implemented")
-    }
-
-    override fun contains(element: T): Boolean {
         TODO("Not yet implemented")
     }
 
