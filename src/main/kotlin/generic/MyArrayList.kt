@@ -48,17 +48,22 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    override fun removeAt(index: Int) {
+        checkIndex(index)
+
+        System.arraycopy(elements, index + 1, elements, index, size - index - 1)
+        size--
+        
+        elements[size] = null
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
 
     override fun remove(element: T) {
-        TODO("Not yet implemented")
-    }
-
-
-    override fun removeAt(index: Int) {
         TODO("Not yet implemented")
     }
 
