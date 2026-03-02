@@ -66,4 +66,14 @@ class MyArrayListTest {
         repeat(100) { numbers.add(it) }
         assertEquals(50, numbers[50])
     }
+
+
+    @Test
+    fun `When element removed then size decreased`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        numbers.remove(50)
+        assertEquals(99, numbers.size)
+    }
 }
