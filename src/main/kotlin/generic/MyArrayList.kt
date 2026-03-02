@@ -53,17 +53,23 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
 
         System.arraycopy(elements, index + 1, elements, index, size - index - 1)
         size--
-        
+
         elements[size] = null
     }
 
 
-    override fun iterator(): Iterator<T> {
-        TODO("Not yet implemented")
+    override fun remove(element: T) {
+        for (i in 0..<size) {
+            if (elements[i] == element)
+            {
+                removeAt(i)
+                return
+            }
+        }
     }
 
 
-    override fun remove(element: T) {
+    override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
