@@ -8,6 +8,12 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
         private set
 
 
+    override fun clear() {
+        elements = arrayOfNulls<Any>(INITIAL_CAPACITY)
+        size = 0
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
@@ -29,10 +35,6 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
         TODO("Not yet implemented")
     }
 
-    override fun clear() {
-        TODO("Not yet implemented")
-    }
-
     override fun get(index: Int): T {
         TODO("Not yet implemented")
     }
@@ -41,6 +43,7 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
         TODO("Not yet implemented")
     }
 
+    
     companion object {
         private const val INITIAL_CAPACITY = 10
     }
