@@ -86,4 +86,14 @@ class MyArrayListTest {
         numbers.removeAt(50)
         assertEquals(51, numbers[50])
     }
+
+
+    @Test
+    fun `When removed value 50 next value at this position`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        numbers.remove(50)
+        assertEquals(51, numbers.get(50))
+    }
 }
