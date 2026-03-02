@@ -32,4 +32,14 @@ class MyArrayListTest {
         }
         assertEquals(100, numbers.size)
     }
+
+
+    @Test
+    fun `When element added to first position then it is in first position`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        numbers.add(0, 1000)
+        assertEquals(1000, numbers[0])
+    }
 }
