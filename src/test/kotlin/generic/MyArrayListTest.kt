@@ -23,4 +23,13 @@ class MyArrayListTest {
         }
         assertEquals(10, numbers.size)
     }
+
+
+    @Test
+    fun `When add 100 element then size is 100`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        assertEquals(100, numbers.size)
+    }
 }
