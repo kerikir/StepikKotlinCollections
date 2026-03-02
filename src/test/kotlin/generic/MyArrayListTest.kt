@@ -96,4 +96,14 @@ class MyArrayListTest {
         numbers.remove(50)
         assertEquals(51, numbers.get(50))
     }
+
+
+    @Test
+    fun `When list is cleared then size is 0 elements`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        numbers.clear()
+        assertEquals(0, numbers.size)
+    }
 }
