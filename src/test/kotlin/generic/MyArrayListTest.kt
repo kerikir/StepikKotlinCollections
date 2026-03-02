@@ -3,6 +3,7 @@ package generic
 import mutablelist.NumbersMutableList
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class MyArrayListTest {
 
@@ -123,5 +124,16 @@ class MyArrayListTest {
             numbers.add(it)
         }
         assertFalse(numbers.contains(100))
+    }
+
+
+    @Test
+    fun `When method get invoked with wrong index then exception is thrown`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            numbers[10]
+        }
     }
 }
