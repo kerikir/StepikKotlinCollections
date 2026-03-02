@@ -38,14 +38,20 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    override fun add(index: Int, element: T) {
+        checkIndexForAdding(index)
+        growIfNeeded()
+
+        System.arraycopy(elements, index, elements, index + 1, size - index)
+        elements[index] = element
+        size++
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
-
-    override fun add(index: Int, element: T) {
-        TODO("Not yet implemented")
-    }
 
     override fun remove(element: T) {
         TODO("Not yet implemented")
