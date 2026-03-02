@@ -1,8 +1,8 @@
 package generic
 
-class MyArrayList<T> : MyMutableList<T> {
+class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T> {
 
-    private var elements = arrayOfNulls<Any>(INITIAL_CAPACITY)
+    private var elements = arrayOfNulls<Any>(initialCapacity)
 
     override var size: Int = 0
         private set
