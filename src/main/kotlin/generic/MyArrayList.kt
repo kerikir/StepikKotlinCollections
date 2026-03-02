@@ -70,7 +70,18 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
 
 
     override fun iterator(): Iterator<T> {
-        TODO("Not yet implemented")
+        return object : Iterator<T> {
+
+            private var nextIndex = 0
+
+            override fun hasNext(): Boolean {
+                return nextIndex < size
+            }
+
+            override fun next(): T {
+                return elements[nextIndex++] as T
+            }
+        }
     }
 
 
