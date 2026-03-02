@@ -14,6 +14,12 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    override fun get(index: Int): T {
+        checkIndex(index)
+        return elements[index] as T
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
@@ -35,9 +41,6 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
         TODO("Not yet implemented")
     }
 
-    override fun get(index: Int): T {
-        TODO("Not yet implemented")
-    }
 
     override fun removeAt(index: Int) {
         TODO("Not yet implemented")
