@@ -30,14 +30,18 @@ class MyArrayList<T>(initialCapacity: Int = INITIAL_CAPACITY) : MyMutableList<T>
     }
 
 
+    override fun add(element: T): Boolean {
+        growIfNeeded()
+        elements[size] = element
+        size++
+        return true
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
-
-    override fun add(element: T): Boolean {
-        TODO("Not yet implemented")
-    }
 
     override fun add(index: Int, element: T) {
         TODO("Not yet implemented")
