@@ -42,4 +42,14 @@ class MyArrayListTest {
         numbers.add(0, 1000)
         assertEquals(1000, numbers[0])
     }
+
+
+    @Test
+    fun `When element added to last position then it is in last position`() {
+        repeat(100) {
+            numbers.add(it)
+        }
+        numbers.add(100, 1000)
+        assertEquals(1000, numbers[100])
+    }
 }
