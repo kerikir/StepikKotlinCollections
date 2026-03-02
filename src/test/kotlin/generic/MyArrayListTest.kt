@@ -59,4 +59,11 @@ class MyArrayListTest {
         repeat(10) { numbers.add(it) }
         assertEquals(5, numbers[5])
     }
+
+
+    @Test
+    fun `When get 50th element then result is correct`() {
+        repeat(100) { numbers.add(it) }
+        assertEquals(50, numbers[50])
+    }
 }
