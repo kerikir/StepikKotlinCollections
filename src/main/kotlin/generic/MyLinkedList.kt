@@ -55,7 +55,26 @@ class MyLinkedList<T> : MyMutableList<T> {
 
 
     override fun add(index: Int, element: T) {
+        checkIndexAdding(index)
 
+        if (index == size) {
+            add(element)
+            return
+        }
+        if (index == 0) {
+            val node = Node(null, element, first)
+            first?.prev = node
+            first = node
+            size++
+            return
+        }
+
+        val before = getNode(index - 1)
+        val after = before.next
+        val newNode = Node(before, element, after)
+        before.next = newNode
+        after?.prev = newNode
+        size++
     }
 
 
