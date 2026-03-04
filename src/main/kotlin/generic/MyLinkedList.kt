@@ -39,7 +39,7 @@ class MyLinkedList<T> : MyMutableList<T> {
     }
 
 
-    override fun add(index: Int, element: T) {
+    override fun add(element: T): Boolean {
         val prevLast = last
         last = Node(prevLast, element, null)
 
@@ -50,6 +50,12 @@ class MyLinkedList<T> : MyMutableList<T> {
         }
 
         size++
+        return true
+    }
+
+
+    override fun add(index: Int, element: T) {
+
     }
 
 
@@ -62,10 +68,6 @@ class MyLinkedList<T> : MyMutableList<T> {
         TODO("Not yet implemented")
     }
 
-
-    override fun add(element: T): Boolean {
-        TODO("Not yet implemented")
-    }
 
     override fun remove(element: T) {
         TODO("Not yet implemented")
