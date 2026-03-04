@@ -1,5 +1,7 @@
 package generic
 
+import mutablelist.NumbersDoublyLinkedList.Node
+
 class MyLinkedList<T> : MyMutableList<T> {
 
     private var first: Node<T>? = null
@@ -38,7 +40,16 @@ class MyLinkedList<T> : MyMutableList<T> {
 
 
     override fun add(index: Int, element: T) {
-        TODO("Not yet implemented")
+        val prevLast = last
+        last = Node(prevLast, element, null)
+
+        if (prevLast == null) {
+            first = last
+        } else {
+            prevLast.next = last
+        }
+
+        size++
     }
 
 
