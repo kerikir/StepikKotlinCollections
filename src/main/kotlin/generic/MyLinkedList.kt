@@ -2,6 +2,9 @@ package generic
 
 class MyLinkedList<T> : MyMutableCollection<T> {
 
+    private var first: Node<T>? = null
+    private var last: Node<T>? = null
+
     override var size: Int = 0
         private set
 
