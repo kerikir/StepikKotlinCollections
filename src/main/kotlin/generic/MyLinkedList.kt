@@ -26,4 +26,11 @@ class MyLinkedList<T> : MyMutableCollection<T> {
     override fun clear() {
         TODO("Not yet implemented")
     }
+
+
+    class Node<T>(
+        var prev: Node<T>? = null,
+        val item: T,
+        var next: Node<T>? = null
+    )
 }
