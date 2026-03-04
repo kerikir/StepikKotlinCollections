@@ -111,7 +111,24 @@ class MyLinkedList<T> : MyMutableList<T> {
 
 
     override fun iterator(): Iterator<T> {
-        TODO("Not yet implemented")
+        return object : Iterator<T> {
+
+            private var nextNode = first
+            private val currentModificationCounter = modificationCounter
+
+            override fun hasNext(): Boolean {
+                return nextNode != null
+            }
+
+            override fun next(): T {
+                if (currentModificationCounter != modificationCounter)
+                    throw ConcurrentModificationException()
+
+                return nextNode?.item!!.also {
+                    nextNode = nextNode?.next
+                }
+            }
+        }
     }
 
 
