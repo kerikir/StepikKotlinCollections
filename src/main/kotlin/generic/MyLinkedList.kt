@@ -1,5 +1,7 @@
 package generic
 
+import mutablelist.NumbersDoublyLinkedList.Node
+
 class MyLinkedList<T> : MyMutableCollection<T> {
 
     private var first: Node<T>? = null
@@ -31,6 +33,26 @@ class MyLinkedList<T> : MyMutableCollection<T> {
 
     override fun contains(element: T): Boolean {
         TODO("Not yet implemented")
+    }
+
+
+    private fun getNode(index: Int): Node<T> {
+        if (index == 0) return first!!
+        if (index == size - 1) return last!!
+
+        if (index < size / 2) {
+            var node = first
+            repeat(index) {
+                node = node?.next
+            }
+            return node!!
+        } else {
+            var node = last
+            repeat(size - index - 1) {
+                node = node?.prev
+            }
+            return node!!
+        }
     }
 
 
