@@ -85,12 +85,21 @@ class MyLinkedList<T> : MyMutableList<T> {
     }
 
 
-    override fun iterator(): Iterator<T> {
-        TODO("Not yet implemented")
+    override fun remove(element: T) {
+        var node = first
+        while (node != null) {
+
+            if (node.item == element) {
+                unlink(node)
+                return
+            } else {
+                node = node.next
+            }
+        }
     }
 
 
-    override fun remove(element: T) {
+    override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
