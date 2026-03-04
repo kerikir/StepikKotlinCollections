@@ -79,7 +79,9 @@ class MyLinkedList<T> : MyMutableList<T> {
 
 
     override fun removeAt(index: Int) {
-        TODO("Not yet implemented")
+        checkIndex(index)
+        val node = getNode(index)
+        unlink(node)
     }
 
 
