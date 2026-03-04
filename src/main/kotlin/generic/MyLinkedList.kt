@@ -9,9 +9,31 @@ class MyLinkedList<T> : MyMutableList<T> {
         private set
 
 
+    override fun clear() {
+        size = 0
+        first = null
+        last = null
+    }
+
+
     override fun get(index: Int): T {
         checkIndex(index)
         return getNode(index).item
+    }
+
+
+    override fun contains(element: T): Boolean {
+        var node = first
+        while (node != null) {
+
+            if (node.item == element) {
+                return true
+            } else {
+                node = node.next
+            }
+        }
+
+        return false
     }
 
 
@@ -22,12 +44,6 @@ class MyLinkedList<T> : MyMutableList<T> {
 
     override fun removeAt(index: Int) {
         TODO("Not yet implemented")
-    }
-
-    override fun clear() {
-        size = 0
-        first = null
-        last = null
     }
 
 
@@ -41,10 +57,6 @@ class MyLinkedList<T> : MyMutableList<T> {
     }
 
     override fun remove(element: T) {
-        TODO("Not yet implemented")
-    }
-
-    override fun contains(element: T): Boolean {
         TODO("Not yet implemented")
     }
 
