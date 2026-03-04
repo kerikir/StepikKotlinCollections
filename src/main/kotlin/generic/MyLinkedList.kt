@@ -1,8 +1,6 @@
 package generic
 
-import mutablelist.NumbersDoublyLinkedList.Node
-
-class MyLinkedList<T> : MyMutableCollection<T> {
+class MyLinkedList<T> : MyMutableList<T> {
 
     private var first: Node<T>? = null
     private var last: Node<T>? = null
@@ -10,6 +8,21 @@ class MyLinkedList<T> : MyMutableCollection<T> {
     override var size: Int = 0
         private set
 
+
+    override fun get(index: Int): T {
+        checkIndex(index)
+        return getNode(index).item
+    }
+
+
+    override fun add(index: Int, element: T) {
+        TODO("Not yet implemented")
+    }
+
+
+    override fun removeAt(index: Int) {
+        TODO("Not yet implemented")
+    }
 
     override fun clear() {
         size = 0
