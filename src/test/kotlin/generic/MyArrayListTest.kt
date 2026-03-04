@@ -1,6 +1,5 @@
 package generic
 
-import mutablelist.NumbersMutableList
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -134,6 +133,61 @@ class MyArrayListTest {
         }
         assertThrows<IndexOutOfBoundsException> {
             numbers[10]
+        }
+    }
+
+
+    @Test
+    fun `When method get invoked with negative index then exception is thrown`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            numbers[-2]
+        }
+    }
+
+
+    @Test
+    fun `When method add invoked with wrong index then exception is thrown`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            numbers.add(11, 1000)
+        }
+    }
+
+
+    @Test
+    fun `When method add invoked with negative index then exception is thrown`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            numbers.add(-1, 100)
+        }
+    }
+
+
+    @Test
+    fun `When method removeAt invoked with wrong index then exception is thrown`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            numbers.removeAt(10)
+        }
+    }
+
+
+    @Test
+    fun `When method removeAt invoked with negative index then exception is thrown`() {
+        repeat(10) {
+            numbers.add(it)
+        }
+        assertThrows<IndexOutOfBoundsException> {
+            numbers.removeAt(-1)
         }
     }
 }
