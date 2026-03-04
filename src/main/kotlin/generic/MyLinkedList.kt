@@ -9,6 +9,13 @@ class MyLinkedList<T> : MyMutableCollection<T> {
         private set
 
 
+    override fun clear() {
+        size = 0
+        first = null
+        last = null
+    }
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
@@ -23,10 +30,6 @@ class MyLinkedList<T> : MyMutableCollection<T> {
     }
 
     override fun contains(element: T): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun clear() {
         TODO("Not yet implemented")
     }
 
