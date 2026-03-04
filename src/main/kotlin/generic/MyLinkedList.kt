@@ -15,6 +15,8 @@ class MyLinkedList<T> : MyMutableList<T> {
         size = 0
         first = null
         last = null
+
+        modificationCounter++
     }
 
 
@@ -49,6 +51,7 @@ class MyLinkedList<T> : MyMutableList<T> {
             prevLast.next = last
         }
 
+        modificationCounter++
         size++
         return true
     }
@@ -56,6 +59,7 @@ class MyLinkedList<T> : MyMutableList<T> {
 
     override fun add(index: Int, element: T) {
         checkIndexAdding(index)
+        modificationCounter++
 
         if (index == size) {
             add(element)
@@ -82,6 +86,8 @@ class MyLinkedList<T> : MyMutableList<T> {
         checkIndex(index)
         val node = getNode(index)
         unlink(node)
+
+        modificationCounter++
     }
 
 
@@ -91,12 +97,17 @@ class MyLinkedList<T> : MyMutableList<T> {
 
             if (node.item == element) {
                 unlink(node)
+
+                modificationCounter++
                 return
             } else {
                 node = node.next
             }
         }
     }
+
+
+    private var modificationCounter = 0
 
 
     override fun iterator(): Iterator<T> {
