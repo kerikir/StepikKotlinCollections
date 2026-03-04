@@ -36,6 +36,23 @@ class MyLinkedList<T> : MyMutableCollection<T> {
     }
 
 
+    private fun unlink(node: Node<T>) {
+        val before = node.prev
+        val after = node.next
+        before?.next = after
+        after?.prev = before
+
+        if (after == null) {
+            last = before
+        }
+        if (before == null) {
+            first = after
+        }
+
+        size--
+    }
+
+
     private fun getNode(index: Int): Node<T> {
         if (index == 0) return first!!
         if (index == size - 1) return last!!
