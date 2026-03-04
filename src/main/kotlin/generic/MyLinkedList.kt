@@ -28,6 +28,13 @@ class MyLinkedList<T> : MyMutableCollection<T> {
     }
 
 
+    private fun checkIndex(index: Int) {
+        if (index < 0 || index >= size) {
+            throw IndexOutOfBoundsException("Index: $index Size: $size")
+        }
+    }
+
+
     class Node<T>(
         var prev: Node<T>? = null,
         val item: T,
