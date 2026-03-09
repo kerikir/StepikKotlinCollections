@@ -22,6 +22,7 @@ class MyHashSet<T> : MyMutableSet<T> {
         return add(element, elements).also { added ->
             if (added) {
                 size++
+                modificationCounter++
             }
         }
     }
@@ -34,6 +35,7 @@ class MyHashSet<T> : MyMutableSet<T> {
         if (existedElement?.item == element) {
             elements[position] = existedElement?.next
             size--
+            modificationCounter++
             return
         }
 
@@ -44,6 +46,7 @@ class MyHashSet<T> : MyMutableSet<T> {
             if (removingElement?.item == element) {
                 before.next = removingElement?.next
                 size--
+                modificationCounter++
                 return
             } else {
                 before = before.next
@@ -72,6 +75,7 @@ class MyHashSet<T> : MyMutableSet<T> {
     override fun clear() {
         elements = arrayOfNulls<Node<T>>(INITIAL_CAPACITY)
         size = 0
+        modificationCounter++
     }
 
 
@@ -127,6 +131,9 @@ class MyHashSet<T> : MyMutableSet<T> {
     )
 
 
+    private var modificationCounter = 0
+
+
     override fun iterator(): Iterator<T> {
         return object : Iterator<T> {
 
@@ -134,11 +141,16 @@ class MyHashSet<T> : MyMutableSet<T> {
             private var nextNode = elements[nodeIndex]
             private var nextIndex = 0
 
+            private val currentModificationCounter = modificationCounter
+
             override fun hasNext(): Boolean {
                 return nextIndex < size
             }
 
             override fun next(): T {
+                if (currentModificationCounter != modificationCounter)
+                    throw ConcurrentModificationException()
+
                 while (nextNode == null) {
                     nextNode = elements[++nodeIndex]
                 }
