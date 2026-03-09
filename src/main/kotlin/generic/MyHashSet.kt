@@ -128,7 +128,20 @@ class MyHashSet<T> : MyMutableSet<T> {
 
 
     override fun iterator(): Iterator<T> {
-        TODO("Not yet implemented")
+        return object : Iterator<T> {
+
+            private var nodeIndex = 0
+            private var nextNode = elements[nodeIndex]
+            private var nextIndex = 0
+
+            override fun hasNext(): Boolean {
+                return nextIndex < size
+            }
+
+            override fun next(): T {
+                TODO("Not yet implemented")
+            }
+        }
     }
 
 
