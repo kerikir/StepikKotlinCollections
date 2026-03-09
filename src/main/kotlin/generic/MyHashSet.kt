@@ -1,5 +1,7 @@
 package generic
 
+import kotlin.math.abs
+
 
 class MyHashSet<T> : MyMutableSet<T> {
 
@@ -26,8 +28,13 @@ class MyHashSet<T> : MyMutableSet<T> {
     }
 
 
+    private fun getElementPosition(element: T, arraySize: Int): Int {
+        return abs(element.hashCode() % arraySize)
+    }
+
+
     class Node<T>(
-        val item: Int,
+        val item: T,
         var next: Node<T>? = null
     )
 
