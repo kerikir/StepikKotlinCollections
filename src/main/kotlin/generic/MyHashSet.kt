@@ -1,6 +1,5 @@
 package generic
 
-import mutableset.NumbersHashSet.Node
 import kotlin.math.abs
 
 
@@ -13,7 +12,15 @@ class MyHashSet<T> : MyMutableSet<T> {
 
 
     override fun add(element: T): Boolean {
-        TODO("Not yet implemented")
+        if (size >= elements.size * LOAD_FACTORY) {
+            increaseArray()
+        }
+
+        return add(element, elements).also { added ->
+            if (added) {
+                size++
+            }
+        }
     }
 
     override fun remove(element: T) {
