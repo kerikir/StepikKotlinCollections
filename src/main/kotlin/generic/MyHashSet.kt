@@ -1,5 +1,6 @@
 package generic
 
+import mutableset.NumbersHashSet.Node
 import kotlin.math.abs
 
 
@@ -23,10 +24,32 @@ class MyHashSet<T> : MyMutableSet<T> {
         }
     }
 
+
     override fun remove(element: T) {
-        TODO("Not yet implemented")
+        val position = getElementPosition(element, elements.size)
+        val existedElement = elements[position]
+
+        if (existedElement?.item == element) {
+            elements[position] = existedElement?.next
+            size--
+            return
+        }
+
+        var before = existedElement
+        while (before?.next != null) {
+            val removingElement = before.next
+
+            if (removingElement?.item == element) {
+                before.next = removingElement?.next
+                size--
+                return
+            } else {
+                before = before.next
+            }
+        }
     }
 
+    
     override fun contains(element: T): Boolean {
         TODO("Not yet implemented")
     }
