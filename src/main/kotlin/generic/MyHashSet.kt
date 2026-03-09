@@ -1,8 +1,5 @@
 package generic
 
-import mutableset.NumbersHashSet
-import mutableset.NumbersHashSet.Companion
-import mutableset.NumbersHashSet.Node
 
 class MyHashSet<T> : MyMutableSet<T> {
 
