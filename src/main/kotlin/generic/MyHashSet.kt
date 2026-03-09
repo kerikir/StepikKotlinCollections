@@ -139,7 +139,14 @@ class MyHashSet<T> : MyMutableSet<T> {
             }
 
             override fun next(): T {
-                TODO("Not yet implemented")
+                while (nextNode == null) {
+                    nextNode = elements[++nodeIndex]
+                }
+
+                return nextNode?.item!!.also {
+                    nextIndex++
+                    nextNode = nextNode?.next
+                }
             }
         }
     }
