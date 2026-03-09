@@ -17,4 +17,9 @@ class Person(
 
         return this.name == other.name && this.age == other.age
     }
+
+
+    override fun hashCode(): Int {
+        return 31 * this.name.hashCode() + this.age.hashCode()
+    }
 }
