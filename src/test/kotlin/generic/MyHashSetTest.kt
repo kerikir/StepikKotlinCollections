@@ -28,29 +28,29 @@ class MyHashSetTest {
 
     @Test
     fun `When adding is failed Then method return false`() {
-        numbers.add(0)
-        assertFalse { numbers.add(0) }
+        numbers.add(Person("Name", 20))
+        assertFalse { numbers.add(Person("Name", 20)) }
     }
 
 
     @Test
     fun `When adding is succeed Then method return true`() {
-        numbers.add(0)
-        assertTrue { numbers.add(1) }
+        numbers.add(Person("Name", 20))
+        assertTrue { numbers.add(Person("My name", 21)) }
     }
 
 
     @Test
     fun `When element present in set Then method return true`() {
-        repeat(10) { numbers.add(it) }
-        assertTrue { numbers.contains(9) }
+        repeat(10) { numbers.add(Person("Name $it", it + 18)) }
+        assertTrue { numbers.contains(Person("Name 9", 27)) }
     }
 
 
     @Test
     fun `When element is absent in set Then method return false`() {
-        repeat(10) { numbers.add(it) }
-        assertFalse { numbers.contains(10) }
+        repeat(10) { numbers.add(Person("Name $it", it + 18)) }
+        assertFalse { numbers.contains(Person("Name 10", 28)) }
     }
 
 
