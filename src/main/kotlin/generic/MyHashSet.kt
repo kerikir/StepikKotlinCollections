@@ -1,5 +1,6 @@
 package generic
 
+import mutableset.NumbersHashSet.Node
 import kotlin.math.abs
 
 
@@ -44,6 +45,33 @@ class MyHashSet<T> : MyMutableSet<T> {
             }
         }
         elements = newArray
+    }
+
+
+    private fun add(element: T, array: Array<Node<T>?>): Boolean {
+        val newNode = Node<T>(element)
+        val position = getElementPosition(element, array.size)
+
+        var existedElement = array[position]
+        if (existedElement == null) {
+            array[position] = newNode
+            return true
+
+        } else {
+            while (true) {
+                if (existedElement?.item == element) {
+                    return false
+
+                } else {
+                    if (existedElement?.next == null) {
+                        existedElement?.next = newNode
+                        return true
+                    } else {
+                        existedElement = existedElement.next
+                    }
+                }
+            }
+        }
     }
 
 
