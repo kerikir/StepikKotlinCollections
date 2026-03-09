@@ -1,5 +1,8 @@
 package generic
 
+import mutableset.NumbersHashSet
+import mutableset.NumbersHashSet.Companion
+import mutableset.NumbersHashSet.Node
 import kotlin.math.abs
 
 
@@ -67,7 +70,8 @@ class MyHashSet<T> : MyMutableSet<T> {
 
 
     override fun clear() {
-        TODO("Not yet implemented")
+        elements = arrayOfNulls<Node<T>>(INITIAL_CAPACITY)
+        size = 0
     }
 
 
