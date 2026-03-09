@@ -56,17 +56,17 @@ class MyHashSetTest {
 
     @Test
     fun `When element removed Then size is decreased`() {
-        repeat(10) { numbers.add(it) }
-        numbers.remove(0)
+        repeat(10) { numbers.add(Person("Name $it", it + 18)) }
+        numbers.remove(Person("Name 0", 18))
         assertEquals(9, numbers.size)
     }
 
 
     @Test
     fun `When element removed Then contains return false`() {
-        repeat(10) { numbers.add(it) }
-        numbers.remove(0)
-        assertFalse { numbers.contains(0) }
+        repeat(10) { numbers.add(Person("Name $it", it + 18)) }
+        numbers.remove(Person("Name 0", 18))
+        assertFalse { numbers.contains(Person("Name 0", 18)) }
     }
 
 
