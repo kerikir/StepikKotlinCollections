@@ -1,12 +1,11 @@
 package generic
 
-import mutableset.NumbersHashSet.Node
 import kotlin.math.abs
 
 
 class MyHashSet<T> : MyMutableSet<T> {
 
-    private var elements = arrayOfNulls<Any>(INITIAL_CAPACITY)
+    private var elements = arrayOfNulls<Node<T>>(INITIAL_CAPACITY)
 
     override var size: Int = 0
         private set
