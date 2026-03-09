@@ -1,7 +1,5 @@
 package generic
 
-import mutablelist.NumbersDoublyLinkedList.Node
-
 class MyLinkedList<T> : MyMutableList<T> {
 
     private var first: Node<T>? = null
