@@ -12,11 +12,6 @@ class MyHashSet<T> : MyMutableSet<T> {
         private set
 
 
-    override fun iterator(): Iterator<T> {
-        TODO("Not yet implemented")
-    }
-
-
     override fun add(element: T): Boolean {
         TODO("Not yet implemented")
     }
@@ -30,6 +25,17 @@ class MyHashSet<T> : MyMutableSet<T> {
     }
 
     override fun clear() {
+        TODO("Not yet implemented")
+    }
+
+
+    class Node<T>(
+        val item: Int,
+        var next: Node<T>? = null
+    )
+
+
+    override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
