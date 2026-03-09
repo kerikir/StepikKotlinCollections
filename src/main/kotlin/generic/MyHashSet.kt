@@ -8,13 +8,14 @@ class MyHashSet<T> : MyMutableSet<T> {
 
     private var elements = arrayOfNulls<Any>(INITIAL_CAPACITY)
 
-    
+    override var size: Int = 0
+        private set
+
+
     override fun iterator(): Iterator<T> {
         TODO("Not yet implemented")
     }
 
-    override val size: Int
-        get() = TODO("Not yet implemented")
 
     override fun add(element: T): Boolean {
         TODO("Not yet implemented")
