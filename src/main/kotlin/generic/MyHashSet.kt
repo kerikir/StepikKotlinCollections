@@ -1,5 +1,6 @@
 package generic
 
+import mutableset.NumbersHashSet.Node
 import kotlin.math.abs
 
 
@@ -30,6 +31,20 @@ class MyHashSet<T> : MyMutableSet<T> {
 
     private fun getElementPosition(element: T, arraySize: Int): Int {
         return abs(element.hashCode() % arraySize)
+    }
+
+
+    private fun increaseArray() {
+        val newArray = arrayOfNulls<Node<T>>(elements.size * 2)
+
+        for (node in elements) {
+            var currentElement = node
+            while (currentElement != null) {
+                add(currentElement.item, newArray)
+                currentElement = currentElement.next
+            }
+        }
+        elements = newArray
     }
 
 
