@@ -73,7 +73,7 @@ class MyHashSetTest {
     @Test
     fun `When set is cleared Then size is 0`() {
         repeat(10) {
-            numbers.add(it)
+            numbers.add(Person("Name $it", it + 18))
         }
         numbers.clear()
         assertEquals(0, numbers.size)
@@ -83,12 +83,12 @@ class MyHashSetTest {
     @Test
     fun `When set is cleared Then all elements is absent`() {
         repeat(10) {
-            numbers.add(it)
+            numbers.add(Person("Name $it", it + 18))
         }
         numbers.clear()
 
         repeat(10) {
-            assertFalse { numbers.contains(it) }
+            assertFalse { numbers.contains(Person("Name $it", it + 18)) }
         }
     }
 }
