@@ -81,12 +81,12 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
 
 
     private fun increaseArray() {
-        val newArray = arrayOfNulls<Node<T>>(elements.size * 2)
+        val newArray = arrayOfNulls<Node<K, V>>(elements.size * 2)
 
         for (node in elements) {
             var currentElement = node
             while (currentElement != null) {
-                add(currentElement.item, newArray)
+                put(currentElement.key, currentElement.value, newArray)
                 currentElement = currentElement.next
             }
         }
