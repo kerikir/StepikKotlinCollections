@@ -11,15 +11,14 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
         private set
 
 
-    override fun add(element: T): Boolean {
+    override fun put(key: K, value: V): V? {
         if (size >= elements.size * LOAD_FACTORY) {
             increaseArray()
         }
 
-        return add(element, elements).also { added ->
-            if (added) {
+        return put(key, value, elements).also { oldValue ->
+            if (oldValue == null) {
                 size++
-                modificationCounter++
             }
         }
     }
