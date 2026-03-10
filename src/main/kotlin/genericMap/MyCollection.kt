@@ -1,6 +1,6 @@
 package genericMap
 
-interface MyCollection<T> {
+interface MyCollection<T> : Iterable<T> {
 
     val size: Int
 
