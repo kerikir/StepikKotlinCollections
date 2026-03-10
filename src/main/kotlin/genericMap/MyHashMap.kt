@@ -10,6 +10,11 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     override var size: Int = 0
         private set
 
+    override val keys: MySet<K>
+        get() = TODO("Not yet implemented")
+
+    override val values: MyCollection<V>
+        get() = TODO("Not yet implemented")
 
     override fun put(key: K, value: V): V? {
         if (size >= elements.size * LOAD_FACTORY) {
