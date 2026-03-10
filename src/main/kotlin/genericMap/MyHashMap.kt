@@ -85,6 +85,14 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
+    override fun containsValue(value: V): Boolean {
+        foreach {
+            if (it.value == value) return true
+        }
+        return false
+    }
+
+
     override fun clear() {
         elements = arrayOfNulls<Node<K, V>>(INITIAL_CAPACITY)
         size = 0
