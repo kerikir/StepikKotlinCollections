@@ -74,8 +74,8 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
-    private fun getElementPosition(element: T, arraySize: Int): Int {
-        return abs(element.hashCode() % arraySize)
+    private fun getElementPosition(key: K, arraySize: Int): Int {
+        return abs(key.hashCode() % arraySize)
     }
 
 
