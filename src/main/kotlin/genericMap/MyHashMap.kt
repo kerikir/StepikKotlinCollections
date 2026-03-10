@@ -68,6 +68,23 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
+    override fun get(key: K): V? {
+        val position = getElementPosition(key, elements.size)
+        var existedElement = elements[position]
+
+        while (existedElement != null) {
+            if (existedElement.key == key) {
+                return existedElement.value
+
+            } else {
+                existedElement = existedElement.next
+            }
+        }
+
+        return null
+    }
+
+
     override fun clear() {
         elements = arrayOfNulls<Node<K, V>>(INITIAL_CAPACITY)
         size = 0
