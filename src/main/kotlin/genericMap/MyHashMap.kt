@@ -51,12 +51,12 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
-    override fun contains(element: T): Boolean {
-        val position = getElementPosition(element, elements.size)
+    override fun containsKey(key: K): Boolean {
+        val position = getElementPosition(key, elements.size)
         var existedElement = elements[position]
 
         while (existedElement != null) {
-            if (existedElement.item == element) {
+            if (existedElement.key == key) {
                 return true
 
             } else {
