@@ -69,9 +69,8 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
 
 
     override fun clear() {
-        elements = arrayOfNulls<Node<T>>(INITIAL_CAPACITY)
+        elements = arrayOfNulls<Node<K, V>>(INITIAL_CAPACITY)
         size = 0
-        modificationCounter++
     }
 
 
