@@ -5,7 +5,7 @@ import kotlin.math.abs
 
 class MyHashMap<K, V> : MyMutableMap<K, V> {
 
-    private var elements = arrayOfNulls<Node<T>>(INITIAL_CAPACITY)
+    private var elements = arrayOfNulls<Node<K, V>>(INITIAL_CAPACITY)
 
     override var size: Int = 0
         private set
