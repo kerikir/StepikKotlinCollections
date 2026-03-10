@@ -95,24 +95,26 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
-    private fun add(element: T, array: Array<Node<T>?>): Boolean {
-        val newNode = Node<T>(element)
-        val position = getElementPosition(element, array.size)
+    private fun put(key: K, value: V, array: Array<Node<K, V>?>): V? {
+        val newNode = Node<K, V>(key, value)
+        val position = getElementPosition(key, array.size)
 
         var existedElement = array[position]
         if (existedElement == null) {
             array[position] = newNode
-            return true
+            return null
 
         } else {
             while (true) {
-                if (existedElement?.item == element) {
-                    return false
+                if (existedElement?.key == key) {
+                    return existedElement?.value.also {
+                        existedElement?.value = value
+                    }
 
                 } else {
                     if (existedElement?.next == null) {
                         existedElement?.next = newNode
-                        return true
+                        return null
                     } else {
                         existedElement = existedElement.next
                     }
