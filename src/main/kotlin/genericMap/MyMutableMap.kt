@@ -1,8 +1,5 @@
 package genericMap
 
-import generic.MyMutableCollection
-import generic.MyMutableSet
-
 
 interface MyMutableMap<K, V> {
 
@@ -20,7 +17,7 @@ interface MyMutableMap<K, V> {
 
     fun remove(key: K): V?
 
-    val keys: MyMutableSet<K>
+    val keys: MySet<K>
 
-    val values: MyMutableCollection<V>
+    val values: MyCollection<V>
 }
