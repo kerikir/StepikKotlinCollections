@@ -91,6 +91,18 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
+    private inline fun foreach(operation: (Node<K, V>) -> Unit) {
+        for (node in elements) {
+            var currentElement = node
+
+            while (currentElement != null) {
+                operation(currentElement)
+                currentElement = currentElement.next
+            }
+        }
+    }
+
+
     private fun getElementPosition(key: K, arraySize: Int): Int {
         return abs(key.hashCode() % arraySize)
     }
