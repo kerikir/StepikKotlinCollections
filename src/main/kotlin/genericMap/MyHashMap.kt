@@ -24,30 +24,30 @@ class MyHashMap<K, V> : MyMutableMap<K, V> {
     }
 
 
-    override fun remove(element: T) {
-        val position = getElementPosition(element, elements.size)
-        val existedElement = elements[position]
+    override fun remove(key: K): V? {
+        val position = getElementPosition(key, elements.size)
+        val existedElement = elements[position] ?: return null
 
-        if (existedElement?.item == element) {
+        if (existedElement.key == key) {
             elements[position] = existedElement?.next
             size--
-            modificationCounter++
-            return
+            return existedElement.value
         }
 
-        var before = existedElement
+        var before: Node<K, V>? = existedElement
         while (before?.next != null) {
             val removingElement = before.next
 
-            if (removingElement?.item == element) {
+            if (removingElement?.key == key) {
                 before.next = removingElement?.next
                 size--
-                modificationCounter++
-                return
+                return removingElement?.value
             } else {
                 before = before.next
             }
         }
+
+        return null
     }
 
 
